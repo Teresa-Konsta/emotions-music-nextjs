@@ -1,3 +1,4 @@
+//Redux implementation demo
 import { configureStore } from '@reduxjs/toolkit';
 import pulseSlice from './pulse-slice';
 

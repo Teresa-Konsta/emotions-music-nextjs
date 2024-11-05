@@ -13,7 +13,7 @@ const pulseSlice = createSlice({
             state.pulseInput2 = action.payload.pulseInput2;
             state.pulseInput3 = action.payload.pulseInput3;            
         },
-        setDefault(state, action) {
+        setDefault(state) {
             state.pulseInput1 = null;
             state.pulseInput2 = null;
             state.pulseInput3 = null;

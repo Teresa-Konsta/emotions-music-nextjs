@@ -16,6 +16,7 @@ const colorNotePair = {
         violet: "E, treble clef"
 };
 
+//I use 2 functions instead of 1 for separate color and note calculation for better UX output
 function specifyMusicNote(pulseResult) {
     if(pulseResult == 0 || pulseResult == 1) return colorNotePair.grey;
     else if(pulseResult < 1) return colorNotePair.black;
@@ -28,24 +29,14 @@ function specifyMusicNote(pulseResult) {
 }
 
 function setAudioSrc (mnote) {
-    switch(mnote) {
-        case (mnote == colorNotePair.grey):
-            return 'audio/g3grey.mp3';
-        case (mnote == colorNotePair.black):
-            return 'audio/d3black.mp3';
-        case (mnote == colorNotePair.brown):
-            return 'audio/b3brown.mp3';
-        case (mnote == colorNotePair.blue):
-            return 'audio/f3blue.mp3';
-        case (mnote == colorNotePair.green):
-            return 'audio/g5green.mp3';
-        case (mnote == colorNotePair.yellow):
-            return 'audio/f-5yellow.mp3';
-        case (mnote == colorNotePair.violet):
-            return 'audio/e5violet.mp3';
-        default:
-            return 'audio/b5orange.mp3';
-    }
+    if(mnote == colorNotePair.grey) return "audio/g3grey.mp3";
+    else if(mnote == colorNotePair.black) return "audio/d3black.mp3";
+    else if(mnote == colorNotePair.brown) return "audio/b3brown.mp3";
+    else if(mnote == colorNotePair.blue) return "audio/f3blue.mp3";
+    else if(mnote == colorNotePair.green) return "audio/g5green.mp3";
+    else if(mnote == colorNotePair.yellow) return "audio/f-5yellow.mp3";
+    else if(mnote == colorNotePair.violet) return "audio/e5violet.mp3";
+    else return "audio/b5orange.mp3";
 }
 
 export default function MusicNotesPage() {
@@ -75,6 +66,9 @@ export default function MusicNotesPage() {
     const audiosrc1 = setAudioSrc(note1);
     const audiosrc2 = setAudioSrc(note2);
     const audiosrc3 = setAudioSrc(note3);
+    console.log(audiosrc1);
+    console.log(audiosrc2);
+    console.log(audiosrc3);
 
     const goHomeHandler = (event) => {
         event.preventDefault();
