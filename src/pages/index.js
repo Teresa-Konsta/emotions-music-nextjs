@@ -1,3 +1,4 @@
+'use client'
 import { useDispatch } from "react-redux";
 import { pulseActions } from '@/store/pulse-slice';
 import { useRouter } from 'next/router';
