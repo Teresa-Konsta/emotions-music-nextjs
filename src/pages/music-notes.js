@@ -2,19 +2,9 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { pulseActions } from '@/store/pulse-slice';
 import { useRouter } from 'next/router';
+import { colorNotePair } from '@/globalVariables';
 
 import styles from '../components/layout/PulseInput.module.css';
-
-const colorNotePair = {
-        grey: "G, bass clef",
-        black: "D, bass clef",
-        brown: "B, bass clef",
-        blue: "F, bass clef",
-        green: "G, treble clef",
-        orange: "B, treble clef",
-        yellow: "F, treble clef",
-        violet: "E, treble clef"
-};
 
 //I use 2 functions instead of 1 for separate color and note calculation for better UX output
 function specifyMusicNote(pulseResult) {
