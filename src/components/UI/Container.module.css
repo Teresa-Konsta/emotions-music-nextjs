@@ -1,8 +1,9 @@
 .container {
-    /**/
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .footer {
-    margin-top: 40%;
-    margin-bottom: 1;
+    background-color: #3A506B;
+    margin-bottom: 0;
 }

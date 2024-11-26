@@ -1,12 +1,15 @@
-import Header from '../layout/Header';
 import Footer from '../layout/Footer';
 import styles from './Container.module.css';
 
 const Container = (props) => {
     return(
-        <div className={styles.container}>
-            <Header />
-            {props.children}
+        <div>
+            <div className={styles.container}>
+                <h1>
+                    Emotions to Music Prototype
+                </h1>
+                {props.children}
+            </div>
             <div className={styles.footer}>
                 <Footer />
             </div>
