@@ -1,3 +1,3 @@
-# emotions-music-nextjs
-# demonstration, not for commercial use
-# not an open source
+# Emotions to Music
+
+This project aims to generate music notes based on your current mental state.
