@@ -2,5 +2,5 @@
 //I'm leaving this REST API file on purpose
 
 export default function handler(req, res) {
-  res.status(200).json({ name: 'John Doe' })
+  res.status(200).json({ name: 'some name' })
 }
