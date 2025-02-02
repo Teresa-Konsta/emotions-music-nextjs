@@ -18,7 +18,8 @@ export default function Description() {
                 These changes = changes in the mood and emotional state of a user.
             </p>
             <p>
-                This AI prototype generates music notes based on the current user&#8217;s mood indicated by simple user pulse input.
+                This AI prototype generates music notes based on the current user&#8217;s mood indicated by simple user pulse input
+                (make sure to make a short interval between pulse measurments).
                 Music notes correspond to colors, and colors - to the emotional state of mind from the input.
                 I use a psychology of color by Max Lüscher, who established the connection between colors and emotional well-being.
             </p>
