@@ -28,13 +28,9 @@ export default function Home() {
         <title>Emotions to Music</title>
         <meta name="description" content="Transfers emotions to music notes" />
       </Head>
-      {!bigScreen && <main className={styles.row}>
-          <div className={styles.column}>
+      {!bigScreen && <main>
             <PulseInput onGetPulseInputs={getPulseHandler} />
-          </div>
-          <div className={styles.column}>
             <Description />
-          </div>
       </main>}
       {bigScreen && <main className={styles.row}>
           <div className={styles.column}>
