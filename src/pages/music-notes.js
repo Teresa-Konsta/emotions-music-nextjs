@@ -1,13 +1,15 @@
 'use client'
 import { useSelector, useDispatch } from 'react-redux';
+import { useMediaQuery } from 'react-responsive';
 import { pulseActions } from '@/store/pulse-slice';
 import { useRouter } from 'next/router';
 import { colorNotePair } from '@/globalVariables';
-
+import Instruction from '../components/guide/Instruction';
 import styles from '../components/layout/PulseInput.module.css';
+import classes from '../styles/Guide.module.css';
 
 //I use 2 functions instead of 1 for separate color and note calculation for better UX output
-function specifyMusicNote(pulseResult) {
+function specifyMusicNote(pulseResult) {    
     if(pulseResult == 0 || pulseResult == 1) return colorNotePair.grey;
     else if(pulseResult < 1) return colorNotePair.black;
     else if(pulseResult < 3 && pulseResult > 2) return colorNotePair.brown;
@@ -30,6 +32,8 @@ function setAudioSrc (mnote) {
 }
 
 export default function MusicNotesPage() {
+    const bigScreen = useMediaQuery({ query: '(min-width: 990px)' });
+
     const pulse1 = useSelector(state => state.pulse.pulseInput1);
     const pulse2 = useSelector(state => state.pulse.pulseInput2);
     const pulse3 = useSelector(state => state.pulse.pulseInput3);
@@ -67,23 +71,51 @@ export default function MusicNotesPage() {
     };
 
     return(
-        <div>
-            <label>Here are music notes for your mood:</label>
-            <div>{note1}</div>
-            <div>{note2}</div>
-            <div>{note3}</div><br/>
-            <audio controls="controls" autoPlay={true}>
-                <source src={audiosrc1} type="audio/mpeg" />
-            </audio><br/>
-            <audio controls="controls">
-                <source src={audiosrc2} type="audio/mpeg" />
-            </audio><br/>
-            <audio controls="controls">
-                <source src={audiosrc3} type="audio/mpeg" />
-            </audio><br/>
-            <div className={styles.control}>
-                <button onClick={goHomeHandler}>Home</button>
+        <>
+        {!bigScreen && <main>
+            <div>
+                <label>Here are music notes for your mood:</label>
+                <div>{note1}</div>
+                <div>{note2}</div>
+                <div>{note3}</div><br/>
+                <audio controls="controls" autoPlay={true}>
+                    <source src={audiosrc1} type="audio/mpeg" />
+                </audio><br/>
+                <audio controls="controls">
+                    <source src={audiosrc2} type="audio/mpeg" />
+                </audio><br/>
+                <audio controls="controls">
+                    <source src={audiosrc3} type="audio/mpeg" />
+                </audio><br/>
+                <div className={styles.control}>
+                    <button onClick={goHomeHandler}>Home</button>
+                </div>
             </div>
-        </div>
+            <Instruction />
+        </main>}
+        {bigScreen && <main className={classes.row}>
+            <div className={classes.column}>
+                <label>Here are music notes for your mood:</label>
+                <div>{note1}</div>
+                <div>{note2}</div>
+                <div>{note3}</div><br/>
+                <audio controls="controls" autoPlay={true}>
+                    <source src={audiosrc1} type="audio/mpeg" />
+                </audio><br/>
+                <audio controls="controls">
+                    <source src={audiosrc2} type="audio/mpeg" />
+                </audio><br/>
+                <audio controls="controls">
+                    <source src={audiosrc3} type="audio/mpeg" />
+                </audio><br/>
+                <div className={styles.control}>
+                    <button onClick={goHomeHandler}>Home</button>
+                </div>
+            </div>
+            <div className={classes.column}>
+                <Instruction />
+            </div>
+        </main>}
+        </>
     );
 }
